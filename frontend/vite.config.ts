@@ -11,6 +11,11 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: './vitest.setup.js',
+    },
     // In production, the frontend calls the backend directly via VITE_API_BASE_URL.
     // In development, vite proxies /api/* to localhost:8080.
     define: {
