@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@650;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Poppins", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --animate-mesh-slow: meshSlow 15s ease infinite;
+  --animate-float-drift-1: drift1 22s ease-in-out infinite;
+  --animate-float-drift-2: drift2 26s ease-in-out infinite;
+  --animate-float-drift-3: drift3 18s ease-in-out infinite;
+  --animate-pulse-glow: pulseGlow 4s ease-in-out infinite;
+
+  @keyframes meshSlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes drift1 {
+    0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+    33% { transform: translate(40px, -60px) scale(1.15) rotate(120deg); }
+    66% { transform: translate(-30px, 50px) scale(0.9) rotate(240deg); }
+    100% { transform: translate(0px, 0px) scale(1) rotate(360deg); }
+  }
+
+  @keyframes drift2 {
+    0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+    50% { transform: translate(-50px, 60px) scale(1.25) rotate(-180deg); }
+    100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  }
+
+  @keyframes drift3 {
+    0% { transform: translate(0px, 0px) scale(1.1); }
+    50% { transform: translate(60px, 40px) scale(0.85); }
+    100% { transform: translate(0px, 0px) scale(1.1); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.25; filter: blur(50px) brightness(1); }
+    50% { opacity: 0.55; filter: blur(80px) brightness(1.2); }
+  }
+}
+
+@layer base {
+  body {
+    background: linear-gradient(135deg, #060a18, #0c1638, #1a1554, #060a18);
+    background-size: 300% 300%;
+    /* animation: meshSlow 18s ease infinite; */
+    font-family: var(--font-sans);
+    color: #f1f5f9;
+  }
+}
+/* Custom visual utilities for professional futuristic grid backdrop layout */
+.glass-header {
+  background: rgba(5, 7, 13, 0.7);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.08);
+}
+
+.glow-card {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.glow-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.18);
+  transform: translateY(-3px);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* ==========================================================================
+   STUNNING LIGHT THEME STYLE OVERRIDES
+   ========================================================================== */
+.light, html.light, body.light {
+  background-color: #f8fafc !important;
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* cyber-grid with soft grays for light theme */
+.light .cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px) !important;
+}
+
+/* Glass Header overrides */
+.light .glass-header {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+}
+
+.light .glass-header a,
+.light .glass-header span,
+.light .glass-header button {
+  color: #334155 !important;
+}
+
+.light .glass-header a:hover,
+.light .glass-header button:hover {
+  color: #2563eb !important;
+}
+
+/* Headings and Texts */
+.light h1, .light h2, .light h3, .light h4, .light h5, .light h6,
+.light .text-white, .light .text-slate-100, .light .text-slate-200 {
+  color: #0f172a !important;
+}
+
+.light p, 
+.light .text-slate-300, 
+.light .text-slate-305, 
+.light .text-slate-350, 
+.light .text-slate-400 {
+  color: #334155 !important;
+}
+
+.light .text-slate-500, 
+.light .text-slate-600 {
+  color: #475569 !important;
+}
+
+/* Section BG modifications */
+.light section,
+.light .bg-[#070a13],
+.light .bg-[#0b0f19],
+.light .bg-[#090d1a],
+.light .bg-[#0d1222] {
+  background-color: #f8fafc !important;
+}
+
+/* Cards & containers in light mode */
+.light .glow-card,
+.light .bg-slate-900\/60,
+.light .bg-slate-900\/40,
+.light .bg-slate-950\/60,
+.light .bg-slate-950\/40,
+.light .bg-slate-900,
+.light .bg-slate-950,
+.light .bg-slate-800,
+.light .bg-slate-900\/30,
+.light .bg-slate-950\/30 {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02), 0 4px 6px -4px rgba(0, 0, 0, 0.02), inset 0 0 0 1px rgba(0, 0, 0, 0.02) !important;
+}
+
+.light .glow-card:hover {
+  border-color: rgba(37, 99, 235, 0.3) !important;
+  box-shadow: 0 12px 24px -4px rgba(37, 99, 235, 0.06), 0 4px 12px -2px rgba(37, 99, 235, 0.04) !important;
+}
+
+/* Force light forms */
+.light input,
+.light select,
+.light textarea {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #0f172a !important;
+}
+
+.light input:focus,
+.light select:focus,
+.light textarea:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1) !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Text linear gradients mapped for outstanding readability in light mode */
+.light .text-gradient {
+  background: linear-gradient(135deg, #0f172a 30%, #334155 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.light .text-gradient-blue {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Buttons in light mode */
+.light button[id*="admin_portal_btn"],
+.light button[id*="whatsapp_inquiry_action"],
+.light button[id*="brochure_download_action"],
+.light a[id*="whatsapp_inquiry_action"] {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.light .border-white\/10,
+.light .border-white\/12,
+.light .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Sidebar navigation and menu tabs in light mode */
+.light #admin_nav_sidebar {
+  background-color: #ffffff !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.light #admin_nav_sidebar button {
+  color: #475569 !important;
+}
+
+.light #admin_nav_sidebar button:hover {
+  background-color: #f1f5f9 !important;
+}
+
+.light #admin_nav_sidebar button[class*="bg-blue-50"] {
+  background-color: #eff6ff !important;
+  color: #1d4ed8 !important;
+}
+
+/* Admin lists, tables, item list panels */
+.light .divide-y > * {
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.light .hover\:bg-slate-800\/40:hover {
+  background-color: #f1f5f9 !important;
+}
+
+.light .bg-emerald-500\/10,
+.light .bg-blue-500\/10, 
+.light .bg-blue-500\/25, 
+.light .bg-blue-500\/20,
+.light .bg-cyan-500\/10,
+.light .bg-cyan-500\/25 {
+  background-color: rgba(37, 99, 235, 0.06) !important;
+  color: #1d4ed8 !important;
+  border-color: rgba(37, 99, 235, 0.12) !important;
+}
+
+/* Footer layout */
+.light footer {
+  background-color: #f1f5f9 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.light footer a {
+  color: #475569 !important;
+}
+
+.light footer a:hover {
+  color: #2563eb !important;
+}
+
+/* Miscellaneous status blocks and labels */
+.light span[class*="text-blue-400"],
+.light span[class*="text-cyan-400"] {
+  color: #2563eb !important;
+}
+
+.light span[class*="text-emerald-400"] {
+  color: #16a34a !important;
+}
+
+.light label {
+  color: #475569 !important;
+}
+
+/* Simple mobile menu overrides */
+.light .lg\:hidden[class*="bg-[#0d1222]"] {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.light .lg\:hidden[class*="bg-[#0d1222]"] a {
+  color: #334155 !important;
+  border-bottom-color: rgba(0, 0, 0, 0.05) !important;
+}
+

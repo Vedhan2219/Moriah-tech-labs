@@ -1,0 +1,6 @@
+{
+  "name": "Moriah Tech Labs",
+  "description": "A high-fidelity lead generation landing page and admin management platform for the Moriah Tech Labs Project Training Program.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
